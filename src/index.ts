@@ -1,21 +1,13 @@
-import dotenv from "dotenv";
-import express from "express";
+import userController from './controller/user-controller';
+import app from './serverness/init';
 
-// initialize configuration
-dotenv.config();
-
-// port is now available to the Node.js runtime
-// as if it were an environment variable
-const port = process.env.SERVER_PORT;
-
-const app = express();
-
-// define a route handler for the default home page
-app.get("/", (req, res) => {
-    res.send("Hello world!");
+app.get('/', (req, res) => {
+  res.send('Hello world!');
 });
-
-// start the Express server
-app.listen(port, () => {
-    console.log(`server started at http://localhost:${port}`);
+app.get('/check', async (req, res) => {
+  const users = await userController.findAll();
+  users.forEach((user) => {
+    console.log(user.name);
+  });
+  res.json(users);
 });

@@ -8,7 +8,20 @@
     "trailing-comma": [
       false
     ],
-    "no-console": false
+    "no-console": false,
+    "quotemark": [
+      true,
+      "single"
+    ],
+    "semicolon": [
+      true,
+      "always"
+    ],
+    "indent": [
+      true,
+      "spaces",
+      2
+    ]
   },
   "rulesDirectory": []
 }
