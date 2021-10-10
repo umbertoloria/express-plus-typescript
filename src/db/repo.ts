@@ -1,7 +1,9 @@
 import {PrismaClient} from '@prisma/client';
-import userRepo from './repository/user-repo';
+import UserRepo from './repository/user-repo';
 
 const prisma = new PrismaClient();
-userRepo.prisma = prisma;
+const userRepo = UserRepo(prisma);
 
-export {userRepo};
+export {
+  userRepo,
+};
